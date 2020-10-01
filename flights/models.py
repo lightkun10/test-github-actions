@@ -28,7 +28,8 @@ class Flight(models.Model):
     # if its origin and destination is not the same, 
     # and/or its duration is positive
     def is_valid_flight(self):
-        return self.origin != self.destination and self.duration >= 0
+        # return self.origin != self.destination and self.duration >= 0
+        return self.origin != self.destination or self.duration >= 0
 
 class Passenger(models.Model):
     first = models.CharField(max_length = 64)  # first name
