@@ -61,14 +61,14 @@ class FlightTestCase(TestCase):
         response = c.get(f"/flights/{f.id}")
         self.assertEqual(response.status_code, 200)
 
-    def test_invalid_flight_page(self):
-        # Get the biggest possible ID out of all
-        # the flights that exist in the database
-        max_id = Flight.objects.all().aggregate(Max("id"))["id__max"]
+    # def test_invalid_flight_page(self):
+    #     # Get the biggest possible ID out of all
+    #     # the flights that exist in the database
+    #     max_id = Flight.objects.all().aggregate(Max("id"))["id__max"]
 
-        c = Client()
-        response = c.get(f"/flights/{max_id + 1}")
-        self.assertEqual(response.status_code, 404)
+    #     c = Client()
+    #     response = c.get(f"/flights/{max_id + 1}")
+    #     self.assertEqual(response.status_code, 404)
     
     def test_flight_page_passengers(self):
         f = Flight.objects.get(pk=1)
