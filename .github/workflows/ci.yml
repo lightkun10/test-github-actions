@@ -1,0 +1,12 @@
+name: Testing
+on: push  #  anytime some1 push, run this workflow
+
+jobs: # what task should happen anytime push happens?
+  test_project:  # name can be anything
+    runs-on: ubuntu-latest  # use ubuntu as machine (VM) to run on
+    steps:    # what action when this run
+    - uses: actions/checkout@v2   # use a particular action by github
+    - name: Run Django unit tests   # Description for this particular step
+      run: |    # Install django first, then run the test
+        pip3 install --user django  
+        python3 manage.py test
