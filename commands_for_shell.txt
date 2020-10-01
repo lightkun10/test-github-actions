@@ -1,0 +1,16 @@
+# All items in model
+<MODEL>.objects.all()
+
+# First item in model
+<MODEL>.objects.first()
+
+# Get some with filter
+<MODEL>.objects.filter(city="New York")
+<MODEL>.objects.filter(city="New York").first()
+
+# For one specific result
+<MODEL>.objects.get(city="New York")
+
+# Exclude mode that satisfy 
+# a particular query
+<MODEL>.objects.exclude(flights=flight)
